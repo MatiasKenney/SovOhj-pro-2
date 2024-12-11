@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Book List</h2>
+<ul>
+    {% for book in books %}
+        <li>
+            <a href="{% url 'crazy_book_clubs:book_reviews' book.id %}">{{ book.name }}</a>
+            <a href="{% url 'crazy_book_clubs:new_review' book.id %}">Add Review</a> <!-- Add Review link for each book -->
+        </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'crazy_book_clubs:new_book' %}">Add New Book</a>
+{% endblock %}
